@@ -1,0 +1,44 @@
+<div class="ngx-container ngx-container_s_l"
+  data-ngx-preloading="$ctrl.loading">
+  <div class="ngx-section ngx-section_s_m">
+    <div class="ngx-panel">
+      <div class="ngx-appeal"
+        ng-repeat="appeal in $ctrl.appeals">
+        <div class="ngx-appeal__row ngx-panel-title ">
+          <div class="ngx-columns">
+            <div class="ngx-column">
+              <div class="npf-panel-row__value_se_sm _theme_appeals_date">
+                {{::appeal.RegistrationDate}}&nbsp;года
+              </div>
+            </div>
+            <div class="ngx-column">
+              <div class="ngx-value _theme_appeals_number">
+                Обращение №&nbsp;{{::appeal.FullNumber}}
+              </div>
+            </div>
+            <div class="ngx-column">
+              <div class="ngx-value _theme_appeals_status" ng-class="{'_success': '{{appeal.StateName}}' === 'Рассмотрено', '_in-progress': '{{appeal.StateName}}' === 'На рассмотрении'}">
+                <p>{{::appeal.StateName}}</p>
+              </div>
+            </div>
+            <div class="ngx-column" ng-if="$ctrl.disableOpenContainer">
+              <a class="ngx-link" href="#" ng-click="$ctrl.open($index)">
+                <span class="ngx-link__icon ngx-icon">${require('images/icons/48/ic-hover.svg')}</span>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="ngx-panel-body" ng-class="{'_hide' : $ctrl.appealId !== $index}">
+          <div class="ngx-panel-body__title">Заявка на изменение №8493820 от 16 сентября 2018 года</div>
+          <div class="ngx-panel-body__description">Отчетность ОКК, автоматическая регистрация, рассылка уведомлений</div>
+          <div class="ngx-panel-body__attachments">
+            <a class="ngx-appeal-attachment">
+              <span class="ngx-appeal-attachment__icon">${require('images/icons/other/ic-document.svg')}</span>
+              <span class="ngx-appeal-attachment__text">Заявка на изменение.docx</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
